@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
-import { va as uuidv4 } from 'uuid'
+import {v4 as uuid} from 'uuid'
 
 const FormularioTareas = ({ tareas, cambiarTareas }) => {
   const [inputTarea, cambiarInputTarea] = useState('');
@@ -16,11 +16,12 @@ const FormularioTareas = ({ tareas, cambiarTareas }) => {
     cambiarTareas([
       ...tareas,
       {
-        id: uuidv4(),
+        id: uuid(),
         texto: inputTarea,
         completada: false
       }
     ]);
+    cambiarInputTarea("");
   }
 
   return (
